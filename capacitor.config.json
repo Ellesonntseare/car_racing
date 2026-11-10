@@ -1,0 +1,7 @@
+{
+  "appId": "za.co.teamtrader.redline",
+  "appName": "REDLINE Street Racing",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "android": { "allowMixedContent": false, "backgroundColor": "#080b11" }
+}

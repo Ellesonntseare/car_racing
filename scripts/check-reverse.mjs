@@ -1,0 +1,4 @@
+import {loadGeometry} from './geometry-audit.mjs';import {TrackWorld} from '../src/engine/TrackWorld.js';import {classifyDriveableMeshes,findTrackSpawn} from '../src/engine/road.js';import {createVehicleState,vehicleStep} from '../src/shared/physics.js';
+const {meshes,bounds}=await loadGeometry('../Car Racing/laguna_seca(MAP 1).glb',900),roads=classifyDriveableMeshes(meshes,'laguna').driveable,w=new TrackWorld(meshes,roads);
+const spawn=findTrackSpawn({roadMeshes:roads,allMeshes:meshes,bounds,surfaceHit:(x,z,y,m,wide)=>w.surface(x,z,y,wide),canSpawn:p=>!w.blocked(p,1.5,2.5)});
+const s={...createVehicleState(),...spawn};for(let i=0;i<120;i++){const prev={...s};vehicleStep(s,{brake:1});const r=w.move(prev,s,{width:.9724});Object.assign(s,{x:r.x,y:r.y,z:r.z,heading:r.heading});if(r.blocked){console.log('blocked',i,s,r);s.speed=0;break;}}console.log(s);

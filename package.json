@@ -1,0 +1,35 @@
+{
+  "name": "redline-street-racing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "start": "node server/index.js",
+    "test": "node --test test/*.test.js",
+    "check": "node scripts/check.mjs",
+    "check:laps": "node scripts/check-full-laps.mjs",
+    "android:add": "cap add android",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "assets:check": "node scripts/asset-check.mjs",
+    "assets:cache": "node scripts/cache-assets.mjs",
+    "android:landscape": "node scripts/android-landscape.mjs",
+    "assets:inspect": "node scripts/inspect-maps.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
+    "three": "^0.177.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.2.0",
+    "vite": "^6.3.5"
+  },
+  "engines": {
+    "node": ">=20.12.0"
+  }
+}

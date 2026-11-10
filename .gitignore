@@ -1,0 +1,19 @@
+node_modules/
+dist/
+android/.gradle/
+android/build/
+android/app/build/
+.env
+*.keystore
+.DS_Store
+
+# Downloaded personal game assets: never publish or embed without license review
+asset-cache/
+
+node_modules/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+certs/
